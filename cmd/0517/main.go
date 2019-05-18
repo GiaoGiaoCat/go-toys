@@ -12,9 +12,9 @@ func check(e error) {
 	}
 }
 
-func writeLines(lines []string, path string) error {
+func writeLines(lines []string, outputFile string) error {
 	// overwrite file if it exists
-	file, err := os.OpenFile("file.txt", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0666)
+	file, err := os.OpenFile(outputFile, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
 	check(err)
 	defer file.Close()
 
@@ -43,7 +43,6 @@ func processingData(inputFile, outputFile string) {
 	for scanner.Scan() {
 		strs := strings.Split(scanner.Text(), " ")
 		tmpSlice = append(tmpSlice, strs...)
-		check(err)
 	}
 
 	strSlice := uniqueStr(tmpSlice)
