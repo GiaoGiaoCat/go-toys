@@ -7,3 +7,8 @@
 * 项目 ID 的加密和解密
 * `go build -ldflags "-w -s" -o hashids 6BlA5E`
 * 用例: `./hashids -s 6BlA5E` 或 `./hashids -t encrypt -s 2001`
+
+
+## 0521
+
+* 去 okex 抓每个周五的下午4点的 open 价
