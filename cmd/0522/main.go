@@ -25,10 +25,10 @@ var exchanges = []string{
 }
 
 var symbols = []string{
-	// "btc.usdt",
-	// "eth.usdt",
-	// "xrp.usdt",
-	// "eos.usdt",
+	"btc.usdt",
+	"eth.usdt",
+	"xrp.usdt",
+	"eos.usdt",
 	"ltc.usdt",
 	"etc.usdt",
 	"bch.usdt",
@@ -52,8 +52,8 @@ func main() {
 			fmt.Println("开始处理交易对", symbol)
 
 			// 开始时间是 2018-04-01
-			t := time.Date(2018, 3, 27, 00, 00, 01, 123456789, time.Now().Location())
-			// t := time.Date(2019, 4, 27, 00, 00, 01, 123456789, time.Now().Location())
+			// t := time.Date(2018, 3, 27, 00, 00, 01, 123456789, time.Now().Location())
+			t := time.Date(2019, 5, 16, 00, 00, 01, 123456789, time.Now().Location())
 
 			// 缓存需要写入文件的字符串
 			var tmpSlice []string
@@ -64,7 +64,8 @@ func main() {
 
 				// 计算出来的周五超过今天，说明是未来的日子，直接中断
 				if t.After(time.Now()) {
-					writeLines(tmpSlice, exchange+"-"+symbol+".csv")
+					// writeLines(tmpSlice, exchange+"-"+symbol+".csv")
+					fmt.Println(tmpSlice)
 					break
 				}
 
