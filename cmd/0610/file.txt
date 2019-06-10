@@ -1,0 +1,2 @@
+"messageLeavePayCircle_%d" = "圈主设置了入圈%d小时内无理由退款，现在退出圈子，入圈费将退回到钱包";
+"titleRepliedApplication_%@" = "%@ 回复了你的入圈申请";

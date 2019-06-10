@@ -1,0 +1,9 @@
+"messageLeavePayCircle_%d" = "圈主设置了入圈%d小时内无理由退款，现在退出圈子，入圈费将退回到钱包";
+"messageLeavePayCircleNotRefund_%@" = "退出后加入费用不予退还，可在有效期内 (%@前) 免费加入";
+"titleViewsCount_%d" = "已读 %d";
+"titleRepliedApplication_%@" = "%@ 回复了你的入圈申请";
+"titleViewAppliesHistory_%@" = "查看 %@ 的历史申请";
+"hintCreatedAt_%@" = "· 创建于 %@ ·";
+"titleTotalRepliesCount_%d" = "共%d条回复";
+"titleSeveralMemberslikeThis_%d" = "%d人觉得很赞";
+"titleSeveralMemberslikeThis_%@_%d" = "%@等 %d 人觉得很赞";
