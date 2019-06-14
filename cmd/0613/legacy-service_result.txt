@@ -1,0 +1,84 @@
+文件名：/Users/Victor/Documents/Works/legacy-service/.env
+ALIYUN_SMS_SIGN_NAME=圈子
+
+文件名：/Users/Victor/Documents/Works/legacy-service/.env_result.txt
+ALIYUN_SMS_SIGN_NAME=圈子
+
+文件名：/Users/Victor/Documents/Works/legacy-service/.env_result.txt_result.txt
+ALIYUN_SMS_SIGN_NAME=圈子
+
+文件名：/Users/Victor/Documents/Works/legacy-service/.env_result.txt_result.txt_result.txt
+ALIYUN_SMS_SIGN_NAME=圈子
+
+文件名：/Users/Victor/Documents/Works/legacy-service/app/controllers/test_support_controller.rb
+return render_error_json(status: :bad_request, message: '圈子续期状态错误') unless @space.may_renew_inform?
+return render_error_json(status: :bad_request, message: '圈子续期状态错误') unless @space.unrenewed?
+return render_error_json(status: :bad_request, message: '圈子续期状态错误') if @space.unrenewed?
+return render_error_json(status: :bad_request, message: '圈主不能过期') if @member.admin?
+render_error_json(code: :not_found_space, status: :bad_request, message: '圈子不存在')
+render_error_json(status: :bad_request, message: '使用付费圈子') unless @space.pay?
+render_error_json(status: :bad_request, message: '使用固定期限的圈子') unless @space.join_fee.deadline?
+
+文件名：/Users/Victor/Documents/Works/legacy-service/app/controllers/v1/qrcodes_controller.rb
+description '*注: 新圈子(小程序码功能代码上线后)会在创建后异步生成小程序码;旧圈子为获取时异步生成*'
+error 404, '圈子不存在'
+error 403, '圈子被冻结'
+error 404, '圈子成员不存在'
+
+文件名：/Users/Victor/Documents/Works/legacy-service/app/controllers/v1/spaces/calendars_controller.rb
+error '10013', '活动与圈子不匹配'
+error '10013', '活动与圈子不匹配'
+error '10013', '活动与圈子不匹配'
+error '10013', '活动与圈子不匹配'
+error '10013', '活动与圈子不匹配'
+
+文件名：/Users/Victor/Documents/Works/legacy-service/app/controllers/v1/spaces/permissions_controller.rb
+admin | 圈主
+co_admin | 圈主和联合圈主
+
+文件名：/Users/Victor/Documents/Works/legacy-service/app/controllers/v1/spaces/scores_controller.rb
+error '10013', '活动与圈子不匹配'
+error '10013', '活动与圈子不匹配'
+
+文件名：/Users/Victor/Documents/Works/legacy-service/app/controllers/v1/spaces_controller.rb
+- *2019-12-29* 新增`me对象`,自己在圈子中的成员信息,用于待续期及待续费的状态判断等.
+- 付费圈子或免费改付费的审核模式设置在这个接口一起提交,与页面逻辑一致
+- 免费圈子的审核模式设置仍调用之前的API(set_join_mode)'
+
+文件名：/Users/Victor/Documents/Works/legacy-service/app/controllers/v1/wxapp_tokens_controller.rb
+title: '点击分享到朋友圈',
+title: '点击分享到朋友圈',
+title: '点击下载圈子APP',
+
+文件名：/Users/Victor/Documents/Works/legacy-service/app/jobs/backend/early_warning_job.rb
+'NOTENOUGH' => '圈子账户已余额不足或交易未结算资金不足，请注意!',
+'AMOUNT_LIMIT' => '圈子账户今日支出已达到最大提现限制，今日已无法提现，请注意!',
+'CHECK_WITHDRAWN' => '圈子账户今日支出已超过最大提现限制的75%，请注意!'
+Mail.send_plain(emails, subject: '圈子支付异常提醒', content: TEXT_MAP[type])
+
+文件名：/Users/Victor/Documents/Works/legacy-service/app/jobs/send_email_about_report_job.rb
+title = "#{statistic.counter_date} 圈子报表统计"
+
+文件名：/Users/Victor/Documents/Works/legacy-service/app/models/mail.rb
+fromName: "多点圈子",
+fromName: "多点圈子",
+
+文件名：/Users/Victor/Documents/Works/legacy-service/app/models/notification.rb
+"圈子内有话题涉及违法违规内容，该话题已被审核人员删除。多次内容违规会被冻结圈子。"
+
+文件名：/Users/Victor/Documents/Works/legacy-service/app/models/space.rb
+desc: description.present? ? description.tr("\n", " ") : '该圈子暂无介绍'
+
+文件名：/Users/Victor/Documents/Works/legacy-service/app/views/pages/space_desktop_html.html.erb
+data:text/html;charset=UTF-8,<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name='apple-mobile-web-app-capable' content='yes'/><meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'><title><%= space.name %></title><link rel='apple-touch-icon' href='<%= space.icon.url %>'/><script>if (window.navigator.standalone) { window.location.href='circles://com.MoreTech.Circles/circle?identifier=<%= space.identifier %>'; }</script></head><body><img class="image-background" src="https://data.quanziapp.com/assets/background.svg" alt=""><div class="content"><img class="circle-image" src="<%= space.icon.url %>?x-oss-process=image/resize,limit_0,m_fill,h_302,w_302" alt=""><p class="circle-name"><%= space.name %></p><p class="circle-owner"><%= space.admin_spaces_user.nickname %></p></div><footer class="footer"><p class="footer-title">将此圈子添加到桌面</p><div class="footer-hint"><span>点击</span><img class="icon-share" src="https://data.quanziapp.com/assets/Share.svg" /><span>菜单，找到</span><img class="icon-add" src="https://data.quanziapp.com/assets/add.svg" alt=""><span>添加到主屏幕 并点击</span></div></footer></body><style> html { height: 100%; margin: 0; padding: 0; } body { margin: 0; padding: 0; background-color: #F5F5F5; height: 100%; font-family: "SF Pro Display","SF UI Text","Helvetica Neue","Helvetica","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans",sans-serif; } p { margin: 0; padding: 0; } .image-background { position: fixed; right: 0; top: 0; } .content { position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); text-align: center; } .content .circle-image { width: 120px; height: 120px; border-radius: 8px; margin-bottom: 11px; } .content .circle-name { font-size: 14px; line-height: 14px; font-weight: 700; color: #333333; margin-bottom: 6px; } .content .circle-owner { font-size: 14px; line-height: 14px; color: #707070; } .footer { position: fixed; bottom: 10px; left: 5%; width: 90%; text-align: center; } .footer .footer-title { font-size: 15px; line-height: 21px; font-weight: 500; color: #979797; margin-bottom: 15px; } .footer .footer-hint { box-sizing: border-box; background: url(https://data.quanziapp.com/assets/foot-background.svg) no-repeat center center; background-size: 100% auto; border-radius: 5px; padding-top: 18px; padding-bottom: 36px; font-size: 15px; line-height: 16px; font-weight: 500; color: #767676; } .icon-share, .icon-add { padding: 0 3px; position: relative; top: 3px; } </style></html>
+
+文件名：/Users/Victor/Documents/Works/legacy-service/config/reserved_names.yml
+- 鲅鱼圈
+- 鲅鱼圈区
+
+文件名：/Users/Victor/Documents/Works/legacy-service/config/schedule.yml
+description: "到期的固定期限的圈子执行批量过期操作"
+description: "到期前7天圈子变为待续期状态"
+description: "固定时长付费圈子成员到期检查"
+description: "通过邀请加入圈子的成员检查"
+
